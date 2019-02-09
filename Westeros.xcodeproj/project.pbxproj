@@ -14,10 +14,14 @@
 		8713B40C22099BA80062FE6F /* HouseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8713B40A22099BA80062FE6F /* HouseDetailViewController.swift */; };
 		8713B40D22099BA80062FE6F /* HouseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8713B40B22099BA80062FE6F /* HouseDetailViewController.xib */; };
 		8713B4172209B0900062FE6F /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8713B4162209B0900062FE6F /* UIViewController+Navigation.swift */; };
+		8748D007220EE8DC001CB53A /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8748D005220EE8DC001CB53A /* WikiViewController.swift */; };
+		8748D008220EE8DC001CB53A /* WikiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8748D006220EE8DC001CB53A /* WikiViewController.xib */; };
 		87CB5A5122039E340050E4CF /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CB5A5022039E340050E4CF /* House.swift */; };
 		87CB5A532203A6EA0050E4CF /* Sigil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CB5A522203A6EA0050E4CF /* Sigil.swift */; };
 		87CB5A552203A8AA0050E4CF /* PersonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CB5A542203A8AA0050E4CF /* PersonTests.swift */; };
 		87CB5A572203A9B90050E4CF /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CB5A562203A9B90050E4CF /* Person.swift */; };
+		87D0E9BB220B703C00725271 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D0E9BA220B703C00725271 /* RepositoryTests.swift */; };
+		87D0E9BE220B714300725271 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D0E9BD220B714300725271 /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +46,14 @@
 		8713B40A22099BA80062FE6F /* HouseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetailViewController.swift; sourceTree = "<group>"; };
 		8713B40B22099BA80062FE6F /* HouseDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseDetailViewController.xib; sourceTree = "<group>"; };
 		8713B4162209B0900062FE6F /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
+		8748D005220EE8DC001CB53A /* WikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
+		8748D006220EE8DC001CB53A /* WikiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WikiViewController.xib; sourceTree = "<group>"; };
 		87CB5A5022039E340050E4CF /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		87CB5A522203A6EA0050E4CF /* Sigil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sigil.swift; sourceTree = "<group>"; };
 		87CB5A542203A8AA0050E4CF /* PersonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTests.swift; sourceTree = "<group>"; };
 		87CB5A562203A9B90050E4CF /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		87D0E9BA220B703C00725271 /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
+		87D0E9BD220B714300725271 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +112,7 @@
 				870D3DAE22039C45000D13EF /* HouseTests.swift */,
 				870D3DA52203929E000D13EF /* Info.plist */,
 				87CB5A542203A8AA0050E4CF /* PersonTests.swift */,
+				87D0E9BA220B703C00725271 /* RepositoryTests.swift */,
 			);
 			path = WesterosTests;
 			sourceTree = "<group>";
@@ -113,6 +122,8 @@
 			children = (
 				8713B40A22099BA80062FE6F /* HouseDetailViewController.swift */,
 				8713B40B22099BA80062FE6F /* HouseDetailViewController.xib */,
+				8748D005220EE8DC001CB53A /* WikiViewController.swift */,
+				8748D006220EE8DC001CB53A /* WikiViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -128,11 +139,20 @@
 		87CB5A4F22039E0D0050E4CF /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				87D0E9BC220B711B00725271 /* Repositories */,
 				87CB5A5022039E340050E4CF /* House.swift */,
 				87CB5A522203A6EA0050E4CF /* Sigil.swift */,
 				87CB5A562203A9B90050E4CF /* Person.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		87D0E9BC220B711B00725271 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				87D0E9BD220B714300725271 /* Repository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +239,7 @@
 			files = (
 				870D3D992203929E000D13EF /* LaunchScreen.storyboard in Resources */,
 				870D3D962203929E000D13EF /* Assets.xcassets in Resources */,
+				8748D008220EE8DC001CB53A /* WikiViewController.xib in Resources */,
 				8713B40D22099BA80062FE6F /* HouseDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,11 +258,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87D0E9BE220B714300725271 /* Repository.swift in Sources */,
 				8713B4172209B0900062FE6F /* UIViewController+Navigation.swift in Sources */,
 				8713B40C22099BA80062FE6F /* HouseDetailViewController.swift in Sources */,
 				87CB5A532203A6EA0050E4CF /* Sigil.swift in Sources */,
 				87CB5A5122039E340050E4CF /* House.swift in Sources */,
 				870D3D8F2203929B000D13EF /* AppDelegate.swift in Sources */,
+				8748D007220EE8DC001CB53A /* WikiViewController.swift in Sources */,
 				87CB5A572203A9B90050E4CF /* Person.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,6 +275,7 @@
 			files = (
 				870D3DAF22039C45000D13EF /* HouseTests.swift in Sources */,
 				87CB5A552203A8AA0050E4CF /* PersonTests.swift in Sources */,
+				87D0E9BB220B703C00725271 /* RepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
