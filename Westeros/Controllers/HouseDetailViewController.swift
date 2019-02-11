@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class HouseDetailViewController: UIViewController {
 
     // MARK: - Outlets
@@ -15,13 +16,12 @@ class HouseDetailViewController: UIViewController {
     @IBOutlet weak var sigilImageView: UIImageView!
     @IBOutlet weak var wordsLabel: UILabel!
     
-    let model: House
+    var model: House
     
     // MARK: - Initialization
     init(model: House) {
         self.model = model
         super.init(nibName: nil, bundle: nil)
-        
         title = model.name
     }
     
@@ -46,7 +46,10 @@ class HouseDetailViewController: UIViewController {
     // MARK: - UI
     func setupUI() {
         let wikiButton = UIBarButtonItem(title: "Wiki", style: .plain, target: self, action: #selector(displayWiki))
-        navigationItem.rightBarButtonItem = wikiButton
+        
+        let membersButton = UIBarButtonItem(title: "Members", style: .plain, target: self, action: #selector(displayMembers))
+        
+        navigationItem.rightBarButtonItems = [membersButton, wikiButton]
     }
     
     @objc func displayWiki() {
@@ -54,4 +57,23 @@ class HouseDetailViewController: UIViewController {
         
         navigationController?.pushViewController(wikiViewController, animated: true)
     }
+    
+    @objc func displayMembers() {
+        let membersViewController = MemberListViewController(model: model.sortedMembers)
+        
+        navigationController?.pushViewController(membersViewController, animated: true)
+    }
 }
+
+extension HouseDetailViewController: HouseListViewControllerDelegate {
+    func houseListViewController(_ viewController: HouseListViewController, didSelectHouse house: House) {
+        self.model = house
+        syncModelWithView()
+    }
+    
+    
+}
+
+
+
+

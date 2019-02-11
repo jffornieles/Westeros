@@ -14,6 +14,10 @@
 		8713B40C22099BA80062FE6F /* HouseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8713B40A22099BA80062FE6F /* HouseDetailViewController.swift */; };
 		8713B40D22099BA80062FE6F /* HouseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8713B40B22099BA80062FE6F /* HouseDetailViewController.xib */; };
 		8713B4172209B0900062FE6F /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8713B4162209B0900062FE6F /* UIViewController+Navigation.swift */; };
+		8716FFB5220F44C20028FEE4 /* HouseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8716FFB3220F44C20028FEE4 /* HouseListViewController.swift */; };
+		8716FFB6220F44C20028FEE4 /* HouseListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8716FFB4220F44C20028FEE4 /* HouseListViewController.xib */; };
+		8716FFB9220F54E70028FEE4 /* MemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8716FFB7220F54E70028FEE4 /* MemberListViewController.swift */; };
+		8716FFBA220F54E70028FEE4 /* MemberListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8716FFB8220F54E70028FEE4 /* MemberListViewController.xib */; };
 		8748D007220EE8DC001CB53A /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8748D005220EE8DC001CB53A /* WikiViewController.swift */; };
 		8748D008220EE8DC001CB53A /* WikiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8748D006220EE8DC001CB53A /* WikiViewController.xib */; };
 		87CB5A5122039E340050E4CF /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CB5A5022039E340050E4CF /* House.swift */; };
@@ -46,6 +50,10 @@
 		8713B40A22099BA80062FE6F /* HouseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetailViewController.swift; sourceTree = "<group>"; };
 		8713B40B22099BA80062FE6F /* HouseDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseDetailViewController.xib; sourceTree = "<group>"; };
 		8713B4162209B0900062FE6F /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
+		8716FFB3220F44C20028FEE4 /* HouseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseListViewController.swift; sourceTree = "<group>"; };
+		8716FFB4220F44C20028FEE4 /* HouseListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HouseListViewController.xib; sourceTree = "<group>"; };
+		8716FFB7220F54E70028FEE4 /* MemberListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListViewController.swift; sourceTree = "<group>"; };
+		8716FFB8220F54E70028FEE4 /* MemberListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberListViewController.xib; sourceTree = "<group>"; };
 		8748D005220EE8DC001CB53A /* WikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
 		8748D006220EE8DC001CB53A /* WikiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WikiViewController.xib; sourceTree = "<group>"; };
 		87CB5A5022039E340050E4CF /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
@@ -124,6 +132,10 @@
 				8713B40B22099BA80062FE6F /* HouseDetailViewController.xib */,
 				8748D005220EE8DC001CB53A /* WikiViewController.swift */,
 				8748D006220EE8DC001CB53A /* WikiViewController.xib */,
+				8716FFB3220F44C20028FEE4 /* HouseListViewController.swift */,
+				8716FFB4220F44C20028FEE4 /* HouseListViewController.xib */,
+				8716FFB7220F54E70028FEE4 /* MemberListViewController.swift */,
+				8716FFB8220F54E70028FEE4 /* MemberListViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -238,8 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				870D3D992203929E000D13EF /* LaunchScreen.storyboard in Resources */,
+				8716FFB6220F44C20028FEE4 /* HouseListViewController.xib in Resources */,
 				870D3D962203929E000D13EF /* Assets.xcassets in Resources */,
 				8748D008220EE8DC001CB53A /* WikiViewController.xib in Resources */,
+				8716FFBA220F54E70028FEE4 /* MemberListViewController.xib in Resources */,
 				8713B40D22099BA80062FE6F /* HouseDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,10 +276,12 @@
 				8713B4172209B0900062FE6F /* UIViewController+Navigation.swift in Sources */,
 				8713B40C22099BA80062FE6F /* HouseDetailViewController.swift in Sources */,
 				87CB5A532203A6EA0050E4CF /* Sigil.swift in Sources */,
+				8716FFB9220F54E70028FEE4 /* MemberListViewController.swift in Sources */,
 				87CB5A5122039E340050E4CF /* House.swift in Sources */,
 				870D3D8F2203929B000D13EF /* AppDelegate.swift in Sources */,
 				8748D007220EE8DC001CB53A /* WikiViewController.swift in Sources */,
 				87CB5A572203A9B90050E4CF /* Person.swift in Sources */,
+				8716FFB5220F44C20028FEE4 /* HouseListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

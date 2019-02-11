@@ -12,16 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        setUpView()
-        
-        return true
-    }
     
-    func setUpView() {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
@@ -30,12 +22,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let houses = Repository.local.houses
         
-        // Creamos un UITabBarController
-        let tabBarController = UITabBarController()
-        tabBarController.viewControllers = houses.map { HouseDetailViewController(model: $0).wrappedInNavigation() }
+        // Creamos los controladores (master && detail de la tabla
+        let houseListViewController = HouseListViewController(model: houses)
+        let houseDatailViewcontroller = HouseDetailViewController(model: houses.first!)
+        
+        houseListViewController.delegate = houseDatailViewcontroller
+        
+        // Creamos el split view controller y asignamos controladores
+        let splitViewController = UISplitViewController()
+        splitViewController.delegate = self
+        splitViewController.preferredDisplayMode = .primaryOverlay
+        splitViewController.preferredDisplayMode = .allVisible
+        splitViewController.viewControllers = [
+                                               houseListViewController.wrappedInNavigation(),
+                                               houseDatailViewcontroller.wrappedInNavigation()
+                                              ]
         
         // Asignamos el rootViewController del window
-        window?.rootViewController = tabBarController
+        window?.rootViewController = splitViewController
+        
+        return true
     }
 }
+
+extension AppDelegate: UISplitViewControllerDelegate {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return true
+    }
+}
+
+
+
+
 
