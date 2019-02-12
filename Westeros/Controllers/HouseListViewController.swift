@@ -8,10 +8,6 @@
 
 import UIKit
 
-
-let HOUSE_DID_CHANGE_NOTIFICATION_NAME = "HouseDidChangeNotificationName"
-let HOUSE_KEY = "HouseKey"
-
 protocol HouseListViewControllerDelegate {
     func houseListViewController(_ viewController: HouseListViewController, didSelectHouse: House)
 }
@@ -82,6 +78,28 @@ class HouseListViewController: UITableViewController {
         let notification = Notification(name: Notification.Name(HOUSE_DID_CHANGE_NOTIFICATION_NAME), object: self, userInfo: [HOUSE_KEY: house])
         // Enviamos la notificacion
         notificationCenter.post(notification)
+        // Guardar la casa seleccionada
+        saveLastSelectedHouse(at: indexPath.row)
+    }
+}
+
+extension HouseListViewController {
+    func saveLastSelectedHouse(at index: Int) {
+        // UserDefault - write
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(index, forKey: LAST_HOUSE_KEY)
+        userDefaults.synchronize()
+    }
+    
+    func lastSelectedHouse() -> House {
+        // UserDefault - read
+        let userDefaults = UserDefaults.standard
+        let index = userDefaults.integer(forKey: LAST_HOUSE_KEY)
+        return house(at: index)
+    }
+    
+    func house(at index: Int) -> House {
+        return model[index]
     }
 }
 

@@ -22,9 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let houses = Repository.local.houses
         
+        
         // Creamos los controladores (master && detail de la tabla
         let houseListViewController = HouseListViewController(model: houses)
-        let houseDatailViewcontroller = HouseDetailViewController(model: houses.first!)
+        // Recuperamos la última casa seleccionada (si hay alguna)
+        let lastHouseSelected = houseListViewController.lastSelectedHouse()
+        
+        let houseDatailViewcontroller = HouseDetailViewController(model: lastHouseSelected)
         
         houseListViewController.delegate = houseDatailViewcontroller
         
