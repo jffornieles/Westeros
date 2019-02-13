@@ -47,7 +47,7 @@ class SeasonTest: XCTestCase {
         XCTAssertNotEqual(season, seasonTwo)
     }
     
-    func testSeason_CustomStringConvertible () {
+    func testSeason_CustomStringConvertible_IsNotNill() {
         XCTAssertNotNil(season.description)
     }
 
