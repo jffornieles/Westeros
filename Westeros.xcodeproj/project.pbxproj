@@ -21,6 +21,7 @@
 		8716FFBA220F54E70028FEE4 /* MemberListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8716FFB8220F54E70028FEE4 /* MemberListViewController.xib */; };
 		871BE8B422142F1B005DF224 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BE8B322142F1B005DF224 /* Season.swift */; };
 		871BE8B622142FE4005DF224 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BE8B522142FE4005DF224 /* Episode.swift */; };
+		871BE8B822143260005DF224 /* SeasonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BE8B722143260005DF224 /* SeasonTest.swift */; };
 		8748D007220EE8DC001CB53A /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8748D005220EE8DC001CB53A /* WikiViewController.swift */; };
 		8748D008220EE8DC001CB53A /* WikiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8748D006220EE8DC001CB53A /* WikiViewController.xib */; };
 		87CB5A5122039E340050E4CF /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CB5A5022039E340050E4CF /* House.swift */; };
@@ -60,6 +61,7 @@
 		8716FFB8220F54E70028FEE4 /* MemberListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberListViewController.xib; sourceTree = "<group>"; };
 		871BE8B322142F1B005DF224 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		871BE8B522142FE4005DF224 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		871BE8B722143260005DF224 /* SeasonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonTest.swift; sourceTree = "<group>"; };
 		8748D005220EE8DC001CB53A /* WikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
 		8748D006220EE8DC001CB53A /* WikiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WikiViewController.xib; sourceTree = "<group>"; };
 		87CB5A5022039E340050E4CF /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				870D3DA52203929E000D13EF /* Info.plist */,
 				87CB5A542203A8AA0050E4CF /* PersonTests.swift */,
 				87D0E9BA220B703C00725271 /* RepositoryTests.swift */,
+				871BE8B722143260005DF224 /* SeasonTest.swift */,
 			);
 			path = WesterosTests;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				871BE8B822143260005DF224 /* SeasonTest.swift in Sources */,
 				870D3DAF22039C45000D13EF /* HouseTests.swift in Sources */,
 				87CB5A552203A8AA0050E4CF /* PersonTests.swift in Sources */,
 				87D0E9BB220B703C00725271 /* RepositoryTests.swift in Sources */,
