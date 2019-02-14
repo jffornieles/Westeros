@@ -16,8 +16,8 @@ class EpisodeTest: XCTestCase {
     var episodeTwo: Episode!
 
     override func setUp() {
-        episode = Episode(title: "Episode 1", issueDate: Date())
-        episodeTwo = Episode(title: "Episode 2", issueDate: Date())
+        episode = Episode(title: "Episode 1", issueDate: Date(), season: nil)
+        episodeTwo = Episode(title: "Episode 2", issueDate: Date(), season: nil)
     }
 
     override func tearDown() {
@@ -33,7 +33,7 @@ class EpisodeTest: XCTestCase {
         XCTAssertEqual(episode, episode)
         
         // Igualdad
-        let episodeAux = Episode(title: "Episode 1", issueDate: Date())
+        let episodeAux = Episode(title: "Episode 1", issueDate: Date(), season: nil)
         XCTAssertEqual(episode, episodeAux)
         
         // Desigualdad

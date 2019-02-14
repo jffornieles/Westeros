@@ -8,26 +8,51 @@
 
 import UIKit
 
+typealias Episodes = Set<Episode>
+
 class Season {
+    
     let name: String
     let releaseDate: Date
-    let episodes: Episode
+    private var _episodes: Episodes
     
-    init(name: String, releaseDate: Date, episodes: Episode) {
+    init(name: String, releaseDate: Date) {
         self.name = name
         self.releaseDate = releaseDate
-        self.episodes = episodes
+        _episodes = Episodes()
+    }
+}
+
+extension Season {
+    
+    var sortedEpisodes: [Episode] {
+        return _episodes.sorted()
+    }
+    
+    var count: Int {
+        return _episodes.count
+    }
+    
+    func add(episode: Episode) {
+        guard episode.season == self else {
+            return
+        }
+        _episodes.insert(episode)
+    }
+    
+    func add(episodes: Episode...) {
+        episodes.forEach { add(episode: $0) }
     }
 }
 
 extension Season {
     
     var proxyForEquality: String {
-        return "\(name) \(releaseDate) \(episodes)"
+        return "\(name) \(releaseDate) \(_episodes)"
     }
     
     var proxyForComparison: String {
-        return "\(name) \(episodes.title)"
+        return "\(name) \(releaseDate)"
     }
 }
 
@@ -51,7 +76,7 @@ extension Season: Comparable {
 
 extension Season: CustomStringConvertible {
     var description: String {
-        return "Name: \(name), Release Date: \(releaseDate), episodes: \(episodes.title)"
+        return "Name: \(name), Release Date: \(releaseDate)"
     }
 }
 

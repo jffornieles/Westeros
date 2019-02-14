@@ -23,8 +23,60 @@ protocol HouseFactory {
     func houses(filteredBy: HouseFilter) -> [House]
 }
 
-final class LocalFactory: HouseFactory {
+protocol SeasonFactory {
     
+    typealias SeasonFilter = (Season) -> Bool
+    
+    var seasons: [Season] { get }
+}
+
+final class LocalFactory: HouseFactory, SeasonFactory {
+    
+
+    // MARK: - Season Factory
+    var seasons: [Season] {
+
+        
+        let season1 = Season(name: "Season 1", releaseDate: Date())
+        let season2 = Season(name: "Season 2", releaseDate: Date())
+        let season3 = Season(name: "Season 3", releaseDate: Date())
+        let season4 = Season(name: "Season 4", releaseDate: Date())
+        let season5 = Season(name: "Season 5", releaseDate: Date())
+        let season6 = Season(name: "Season 6", releaseDate: Date())
+        let season7 = Season(name: "Season 7", releaseDate: Date())
+        let season8 = Season(name: "Season 8", releaseDate: Date())
+        
+        let episode1Season1 = Episode(title: "Winter is Comming", issueDate: Date(), season: season1)
+        let episode2Season1 = Episode(title: "The Kingsroad", issueDate: Date(), season: season1)
+        let episode1Season2 = Episode(title: "The North Remembers", issueDate: Date(), season: season2)
+        let episode2Season2 = Episode(title: "The Night Lands", issueDate: Date(), season: season2)
+        let episode1Season3 = Episode(title: "Valar Dohaeris", issueDate: Date(), season: season3)
+        let episode2Season3 = Episode(title: "Dark Wings, Dark Words", issueDate: Date(), season: season3)
+        let episode1Season4 = Episode(title: "Two Swords", issueDate: Date(), season: season4)
+        let episode2Season4 = Episode(title: "The Lion and the Rose", issueDate: Date(), season: season4)
+        let episode1Season5 = Episode(title: "Winter is Comming", issueDate: Date(), season: season5)
+        let episode2Season5 = Episode(title: "The Kingsroad", issueDate: Date(), season: season5)
+        let episode1Season6 = Episode(title: "The North Remembers", issueDate: Date(), season: season6)
+        let episode2Season6 = Episode(title: "The Night Lands", issueDate: Date(), season: season6)
+        let episode1Season7 = Episode(title: "Valar Dohaeris", issueDate: Date(), season: season7)
+        let episode2Season7 = Episode(title: "Dark Wings, Dark Words", issueDate: Date(), season: season7)
+        let episode1Season8 = Episode(title: "Two Swords", issueDate: Date(), season: season8)
+        let episode2Season8 = Episode(title: "The Lion and the Rose", issueDate: Date(), season: season8)
+        
+        season1.add(episodes: episode1Season1, episode2Season1)
+        season2.add(episodes: episode1Season2, episode2Season2)
+        season3.add(episodes: episode1Season3, episode2Season3)
+        season4.add(episodes: episode1Season4, episode2Season4)
+        season5.add(episodes: episode1Season5, episode2Season5)
+        season6.add(episodes: episode1Season6, episode2Season6)
+        season7.add(episodes: episode1Season7, episode2Season7)
+        season8.add(episodes: episode1Season8, episode2Season8)
+        
+        return [season1, season2, season3, season4, season5, season6, season7, season8].sorted()
+        
+    }
+    
+    // MARK: - House Factory
     var houses: [House] {
         let starkSigil = Sigil(image: UIImage(named: "codeIsComing")!, description: "Lobo Huargo")
         let lannisterSigil = Sigil(image: UIImage(named: "lannister")!, description: "León Rampante")
