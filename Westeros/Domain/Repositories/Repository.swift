@@ -28,6 +28,8 @@ protocol SeasonFactory {
     typealias SeasonFilter = (Season) -> Bool
     
     var seasons: [Season] { get }
+    
+    func season(named: String) -> Season?
 }
 
 final class LocalFactory: HouseFactory, SeasonFactory {
@@ -44,7 +46,7 @@ final class LocalFactory: HouseFactory, SeasonFactory {
         let season5 = Season(name: "Season 5", releaseDate: Date())
         let season6 = Season(name: "Season 6", releaseDate: Date())
         let season7 = Season(name: "Season 7", releaseDate: Date())
-        let season8 = Season(name: "Season 8", releaseDate: Date())
+        
         
         let episode1Season1 = Episode(title: "Winter is Comming", issueDate: Date(), season: season1)
         let episode2Season1 = Episode(title: "The Kingsroad", issueDate: Date(), season: season1)
@@ -60,8 +62,6 @@ final class LocalFactory: HouseFactory, SeasonFactory {
         let episode2Season6 = Episode(title: "The Night Lands", issueDate: Date(), season: season6)
         let episode1Season7 = Episode(title: "Valar Dohaeris", issueDate: Date(), season: season7)
         let episode2Season7 = Episode(title: "Dark Wings, Dark Words", issueDate: Date(), season: season7)
-        let episode1Season8 = Episode(title: "Two Swords", issueDate: Date(), season: season8)
-        let episode2Season8 = Episode(title: "The Lion and the Rose", issueDate: Date(), season: season8)
         
         season1.add(episodes: episode1Season1, episode2Season1)
         season2.add(episodes: episode1Season2, episode2Season2)
@@ -70,10 +70,14 @@ final class LocalFactory: HouseFactory, SeasonFactory {
         season5.add(episodes: episode1Season5, episode2Season5)
         season6.add(episodes: episode1Season6, episode2Season6)
         season7.add(episodes: episode1Season7, episode2Season7)
-        season8.add(episodes: episode1Season8, episode2Season8)
         
-        return [season1, season2, season3, season4, season5, season6, season7, season8].sorted()
+        return [season1, season2, season3, season4, season5, season6, season7].sorted()
         
+    }
+    
+    func season(named name: String) -> Season? {
+        let season = seasons.first {$0.name.uppercased() == name.uppercased()}
+        return season
     }
     
     // MARK: - House Factory
