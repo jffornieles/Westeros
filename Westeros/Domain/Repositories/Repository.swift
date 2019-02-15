@@ -34,7 +34,7 @@ protocol SeasonFactory {
 
 final class LocalFactory: HouseFactory, SeasonFactory {
     
-
+    
     // MARK: - Season Factory
     var seasons: [Season] {
 

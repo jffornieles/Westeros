@@ -23,9 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let houses = Repository.local.houses
         let seasons = Repository.local.seasons
         
+        
         // Creamos los controladores (master && detail de la tabla
         let houseListViewController = HouseListViewController(model: houses)
         let seasonListViewController = SeasonListViewController(model: seasons)
+        
         
         // Recuperamos la última casa seleccionada (si hay alguna)
         let lastHouseSelected = houseListViewController.lastSelectedHouse()
@@ -33,8 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let houseDetailViewController = HouseDetailViewController(model: lastHouseSelected)
         let seasonDetailViewController = SeasonDatailViewController(model: seasons.first!)
         
+        
         houseListViewController.delegate = houseDetailViewController
         seasonListViewController.delegate = seasonDetailViewController
+        
         
         
         // Creamos el split view controller y asignamos controladores
@@ -43,8 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         splitViewController.preferredDisplayMode = .primaryOverlay
         splitViewController.preferredDisplayMode = .allVisible
         splitViewController.viewControllers = [
-                                               houseListViewController.wrappedInNavigation(),
-                                               houseDetailViewController.wrappedInNavigation()
+            seasonListViewController.wrappedInNavigation(),
+            seasonDetailViewController.wrappedInNavigation()
+//                                               houseListViewController.wrappedInNavigation(),
+//                                               houseDetailViewController.wrappedInNavigation()
                                               ]
         
         // Asignamos el rootViewController del window

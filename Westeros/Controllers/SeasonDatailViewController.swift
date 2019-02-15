@@ -30,13 +30,27 @@ class SeasonDatailViewController: UIViewController {
         super.viewWillAppear(animated)
         
         syncModelWithView()
+        
+        setupUI()
     }
     
     func syncModelWithView() {
         title = model.name
         titleLabel.text = model.name
+        dateLabel.text = "Date"
         // dateLabel.text = model.releaseDate
         
+    }
+    
+    func setupUI() {
+        let episodeButton = UIBarButtonItem(title: "Episodes", style: .plain, target: self, action: #selector(displayEpisodes))
+        
+        navigationItem.rightBarButtonItem = episodeButton
+    }
+    
+    @objc func displayEpisodes() {
+        let episodeViewController = EpisodeListViewController(model: model.sortedEpisodes)
+        navigationController?.pushViewController(episodeViewController, animated: true)
     }
     
 }

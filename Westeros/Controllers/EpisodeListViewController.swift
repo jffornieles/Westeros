@@ -1,66 +1,66 @@
 //
-//  SeasonListViewController.swift
+//  EpisodeListViewController.swift
 //  Westeros
 //
-//  Created by Jose Francisco Fornieles on 14/02/2019.
+//  Created by Jose Francisco Fornieles on 15/02/2019.
 //  Copyright © 2019 Jose Francisco Fornieles. All rights reserved.
 //
 
-protocol SeasonListViewControllerDelegate {
-    func seasonListViewController(_ viewController: SeasonListViewController, didSelectSeason: Season)
-}
 import UIKit
 
-class SeasonListViewController: UITableViewController {
+//protocol EpisodeListViewControllerDelegate {
+//    func episodeListViewController(_ vieController: EpisodeListViewController, didSelectedEpisode: Episode)
+//}
+
+class EpisodeListViewController: UITableViewController {
     
     // MARK: - Properties
-    var model: [Season]
-    var delegate: SeasonListViewControllerDelegate?
+    var model: [Episode]
+    // var delegate: EpisodeListViewControllerDelegate?
     
     // MARK: - Initialization
-    init(model: [Season]) {
+    init(model: [Episode]) {
         self.model = model
         super.init(nibName: nil, bundle: nil)
-        title = "Seasons"
+        title = "Episodes"
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return model.count
     }
+
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let season = model[indexPath.row]
-        let cellId = "SeasonCell"
+        
+        let episode = model[indexPath.row]
+        let cellId = "EpisodeCell"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
-        cell.textLabel?.text = season.name
         
+        cell.textLabel?.text = episode.title
+
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let seasonSelected = model[indexPath.row]
-        
-        delegate?.seasonListViewController(self, didSelectSeason: seasonSelected)
+        let episode = model[indexPath.row]
+        let episodeViewController = EpisodeDetailViewController(model: episode)
+        navigationController?.pushViewController(episodeViewController, animated: true)
+        // delegate?.episodeListViewController(self, didSelectedEpisode: episode)
     }
 }
-
