@@ -31,7 +31,6 @@ class SeasonListViewController: UITableViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     // MARK: - Table view data source
@@ -63,4 +62,6 @@ class SeasonListViewController: UITableViewController {
         delegate?.seasonListViewController(self, didSelectSeason: seasonSelected)
     }
 }
+
+
 

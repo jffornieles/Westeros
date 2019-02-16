@@ -34,6 +34,7 @@ class EpisodeDetailViewController: UIViewController {
     }
     
     func syncModelWithView() {
+        title = model.title
         titleLabel.text = model.title
         directedLabel.text = model.directedBy
         writedLabel.text = model.writedBy

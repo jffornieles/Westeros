@@ -12,6 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var tabBarDetailControllers: [UINavigationController]!
+    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -35,23 +37,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let houseDetailViewController = HouseDetailViewController(model: lastHouseSelected)
         let seasonDetailViewController = SeasonDatailViewController(model: seasons.first!)
         
+        tabBarDetailControllers = [
+            houseDetailViewController.wrappedInNavigation(),
+            seasonDetailViewController.wrappedInNavigation()
+        ]
+        
         
         houseListViewController.delegate = houseDetailViewController
         seasonListViewController.delegate = seasonDetailViewController
         
-        
+        // Creamos el TabBarController y asignamos controladores
+        let tabBarController = UITabBarController()
+        tabBarController.delegate = self
+        tabBarController.viewControllers = [
+            houseListViewController.wrappedInNavigation(),
+            seasonListViewController.wrappedInNavigation()
+        ]
         
         // Creamos el split view controller y asignamos controladores
         let splitViewController = UISplitViewController()
         splitViewController.delegate = self
         splitViewController.preferredDisplayMode = .primaryOverlay
         splitViewController.preferredDisplayMode = .allVisible
-        splitViewController.viewControllers = [
-            seasonListViewController.wrappedInNavigation(),
-            seasonDetailViewController.wrappedInNavigation()
-//                                               houseListViewController.wrappedInNavigation(),
-//                                               houseDetailViewController.wrappedInNavigation()
-                                              ]
+        splitViewController.viewControllers = [tabBarController, tabBarDetailControllers.first!]
         
         // Asignamos el rootViewController del window
         window?.rootViewController = splitViewController
@@ -66,7 +74,14 @@ extension AppDelegate: UISplitViewControllerDelegate {
     }
 }
 
-
-
+extension AppDelegate: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
+        if let splitViewController = window?.rootViewController as? UISplitViewController, splitViewController.viewControllers.count > 1 {
+            splitViewController.viewControllers[1] = tabBarDetailControllers[tabBarController.selectedIndex]
+        }
+        
+    }
+}
 
 

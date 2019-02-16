@@ -59,6 +59,7 @@ class EpisodeListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let episode = model[indexPath.row]
+        print(episode)
         let episodeViewController = EpisodeDetailViewController(model: episode)
         navigationController?.pushViewController(episodeViewController, animated: true)
         // delegate?.episodeListViewController(self, didSelectedEpisode: episode)
