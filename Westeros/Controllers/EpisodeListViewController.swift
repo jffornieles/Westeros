@@ -33,6 +33,28 @@ class EpisodeListViewController: UITableViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let notificationCenter = NotificationCenter.default
+        let notificationName = Notification.Name(SEASON_DID_CHANGE_NOTIFICATION_NAME )
+        
+        notificationCenter.addObserver(self, selector: #selector(seasonDidChange(notification:)), name: notificationName, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Damos de baja la notificacion
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
+    @objc func seasonDidChange(notification: Notification) {
+        guard let info = notification.userInfo, let season = info[SEASON_KEY] as? Season else {
+            return
+        }
+        self.model = season.sortedEpisodes
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -59,9 +81,7 @@ class EpisodeListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let episode = model[indexPath.row]
-        print(episode)
         let episodeViewController = EpisodeDetailViewController(model: episode)
         navigationController?.pushViewController(episodeViewController, animated: true)
-        // delegate?.episodeListViewController(self, didSelectedEpisode: episode)
     }
 }

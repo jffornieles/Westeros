@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let lastHouseSelected = houseListViewController.lastSelectedHouse()
         
         let houseDetailViewController = HouseDetailViewController(model: lastHouseSelected)
-        let seasonDetailViewController = SeasonDatailViewController(model: seasons.first!)
+        let seasonDetailViewController = SeasonDetailViewController(model: seasons.first!)
         
         tabBarDetailControllers = [
             houseDetailViewController.wrappedInNavigation(),

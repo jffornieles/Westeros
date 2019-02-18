@@ -48,18 +48,27 @@ class SeasonListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let season = model[indexPath.row]
         let cellId = "SeasonCell"
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
         
-        cell.textLabel?.text = season.name
+        if cell == nil {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
+        }
         
-        return cell
+        cell?.textLabel?.text = season.name
+        cell?.detailTextLabel?.text = "Number of episodes: \(season.numberOfEpisodesForSeason)"
+        
+        return cell!
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let seasonSelected = model[indexPath.row]
         
         delegate?.seasonListViewController(self, didSelectSeason: seasonSelected)
+        
+        let notificationCenter = NotificationCenter.default
+        let notification = Notification(name: Notification.Name(SEASON_DID_CHANGE_NOTIFICATION_NAME), object: self, userInfo: [SEASON_KEY: seasonSelected])
+        
+        notificationCenter.post(notification)
     }
 }
 

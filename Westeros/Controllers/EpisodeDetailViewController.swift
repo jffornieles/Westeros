@@ -22,15 +22,15 @@ class EpisodeDetailViewController: UIViewController {
     init(model: Episode) {
         self.model = model
         super.init(nibName: nil, bundle: nil)
-        syncModelWithView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        syncModelWithView()
     }
     
     func syncModelWithView() {
@@ -38,15 +38,7 @@ class EpisodeDetailViewController: UIViewController {
         titleLabel.text = model.title
         directedLabel.text = model.directedBy
         writedLabel.text = model.writedBy
-        issueDateLabel.text = "Date"
+        issueDateLabel.text = "\(model.issueDate)"
     }
 }
 
-//extension EpisodeDetailViewController: EpisodeListViewControllerDelegate {
-//    func episodeListViewController(_ vieController: EpisodeListViewController, didSelectedEpisode: Episode) {
-//        self.model = didSelectedEpisode
-//        syncModelWithView()
-//    }
-//
-//
-//}

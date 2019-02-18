@@ -29,6 +29,7 @@ class MemberListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +58,7 @@ class MemberListViewController: UIViewController {
 }
 
 // MARK: - DataSource
-extension MemberListViewController: UITableViewDataSource {
+extension MemberListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.count
     }
@@ -77,6 +78,12 @@ extension MemberListViewController: UITableViewDataSource {
         cell?.detailTextLabel?.text = person.alias
         
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let member = model[indexPath.row]
+        let memberDetailViewController = MemberDetailViewController(model: member)
+        navigationController?.pushViewController(memberDetailViewController, animated: true)
     }
     
     

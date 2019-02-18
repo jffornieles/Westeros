@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SeasonDatailViewController: UIViewController {
+class SeasonDetailViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var dateLabel: UILabel!
@@ -37,9 +37,7 @@ class SeasonDatailViewController: UIViewController {
     func syncModelWithView() {
         title = model.name
         titleLabel.text = model.name
-        dateLabel.text = "Date"
-        // dateLabel.text = model.releaseDate
-        
+        dateLabel.text = "Release Date: \(model.releaseDate)"
     }
     
     func setupUI() {
@@ -55,7 +53,7 @@ class SeasonDatailViewController: UIViewController {
     
 }
 
-extension SeasonDatailViewController: SeasonListViewControllerDelegate {
+extension SeasonDetailViewController: SeasonListViewControllerDelegate {
     func seasonListViewController(_ viewController: SeasonListViewController, didSelectSeason: Season) {
         self.model = didSelectSeason
         syncModelWithView()
