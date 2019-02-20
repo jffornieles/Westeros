@@ -80,3 +80,9 @@ extension House: Comparable {
     
 }
 
+extension House: CustomStringConvertible {
+    var description: String {
+        return "Name: \(name), Sigil: \(sigil), Words: \(words), wikiURL: \(wikiURL)"
+    }    
+}
+

@@ -9,7 +9,9 @@
 import UIKit
 
 final class Repository {
+    
     static let local = LocalFactory()
+    
 }
 
 protocol HouseFactory {
@@ -19,6 +21,8 @@ protocol HouseFactory {
     var houses: [House] { get }
     
     func house(named: String) -> House?
+    
+    func house(named: HousesName) -> House?
     
     func houses(filteredBy: HouseFilter) -> [House]
 }
@@ -114,6 +118,14 @@ final class LocalFactory: HouseFactory, SeasonFactory {
     func house(named name: String) -> House? {
         let house = houses.first{ $0.name.uppercased() == name.uppercased()}
         return house
+    }
+    
+    /**
+     - Parameter named: possible settings: .stark, .lannister, .targaryen
+     - Returns: A House object if it exists, otherwise nil
+     */
+    func house(named name: HousesName) -> House? {
+        return house(named: name.rawValue)
     }
     
     func houses(filteredBy theFilter: (House) -> Bool) -> [House] {

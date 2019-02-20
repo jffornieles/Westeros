@@ -15,4 +15,11 @@ let LAST_HOUSE_KEY = "Last house key"
 let SEASON_DID_CHANGE_NOTIFICATION_NAME = "SeasonDidChangeNotificationName"
 let SEASON_KEY = "SeasonKey"
 
+enum HousesName: String {
+    case stark
+    case lannister
+    case targaryen
+}
+
+
 
