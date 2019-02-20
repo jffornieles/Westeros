@@ -38,30 +38,33 @@ final class LocalFactory: HouseFactory, SeasonFactory {
     // MARK: - Season Factory
     var seasons: [Season] {
 
-        
-        let season1 = Season(name: "Season 1", releaseDate: Date())
-        let season2 = Season(name: "Season 2", releaseDate: Date())
-        let season3 = Season(name: "Season 3", releaseDate: Date())
-        let season4 = Season(name: "Season 4", releaseDate: Date())
-        let season5 = Season(name: "Season 5", releaseDate: Date())
-        let season6 = Season(name: "Season 6", releaseDate: Date())
-        let season7 = Season(name: "Season 7", releaseDate: Date())
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         
         
-        let episode1Season1 = Episode(title: "Winter is Comming", issueDate: Date(), season: season1, summary: "Summary", directedBy: "Tim Van Patten", writedBy: "David Benioff & D. B. Weiss")
-        let episode2Season1 = Episode(title: "The Kingsroad", issueDate: Date(), season: season1, summary: "Summary", directedBy: "Tim Van Patten", writedBy: "David Benioff & D. B. Weiss")
-        let episode1Season2 = Episode(title: "The North Remembers", issueDate: Date(), season: season2, summary: "Summary", directedBy: "Alan Taylor", writedBy: "David Benioff & D. B. Weiss")
-        let episode2Season2 = Episode(title: "The Night Lands", issueDate: Date(), season: season2, summary: "Summary", directedBy: "Alan Taylor", writedBy: "David Benioff & D. B. Weiss")
-        let episode1Season3 = Episode(title: "Valar Dohaeris", issueDate: Date(), season: season3, summary: "Summary", directedBy: "Daniel Minahan", writedBy: "David Benioff & D. B. Weiss")
-        let episode2Season3 = Episode(title: "Dark Wings, Dark Words", issueDate: Date(), season: season3, summary: "Summary", directedBy: "Daniel Minahan", writedBy: "Vanessa Taylor")
-        let episode1Season4 = Episode(title: "Two Swords", issueDate: Date(), season: season4, summary: "Summary", directedBy: "D. B. Weiss", writedBy: "David Benioff y D. B. Weiss")
-        let episode2Season4 = Episode(title: "The Lion and the Rose", issueDate: Date(), season: season4, summary: "Summary", directedBy: "Alex Graves", writedBy: "George R. R. Martin")
-        let episode1Season5 = Episode(title: "The Wars to Come", issueDate: Date(), season: season5, summary: "Summary", directedBy: "Michael Slovis", writedBy: "David Benioff & D. B. Weiss")
-        let episode2Season5 = Episode(title: "The House of Black and White", issueDate: Date(), season: season5, summary: "Summary", directedBy: "Michael Slovis", writedBy: "David Benioff & D. B. Weiss")
-        let episode1Season6 = Episode(title: "The Red Woman", issueDate: Date(), season: season6, summary: "Summary", directedBy: "Jeremy Podeswa", writedBy: "David Benioff & D. B. Weiss")
-        let episode2Season6 = Episode(title: "Home", issueDate: Date(), season: season6, summary: "Summary", directedBy: "Jeremy Podeswa", writedBy: "Dave Hill")
-        let episode1Season7 = Episode(title: "Dragonstone", issueDate: Date(), season: season7, summary: "Summary", directedBy: "Jeremy Podeswa", writedBy: "David Benioff & D. B. Weiss")
-        let episode2Season7 = Episode(title: "Stormborn", issueDate: Date(), season: season7, summary: "Summary", directedBy: "Mark Mylod", writedBy: "Bryan Cogman")
+        let season1 = Season(name: "Season 1", releaseDate: dateFormatter.date(from: "2011-04-17")!)
+        let season2 = Season(name: "Season 2", releaseDate: dateFormatter.date(from: "2012-04-01")!)
+        let season3 = Season(name: "Season 3", releaseDate: dateFormatter.date(from: "2013-03-31")!)
+        let season4 = Season(name: "Season 4", releaseDate: dateFormatter.date(from: "2014-04-06")!)
+        let season5 = Season(name: "Season 5", releaseDate: dateFormatter.date(from: "2015-04-12")!)
+        let season6 = Season(name: "Season 6", releaseDate: dateFormatter.date(from: "2016-04-24")!)
+        let season7 = Season(name: "Season 7", releaseDate: dateFormatter.date(from: "2017-06-16")!)
+        
+        
+        let episode1Season1 = Episode(title: "Winter is Comming", issueDate: dateFormatter.date(from: "2011-04-17")!, season: season1, summary: "Summary", directedBy: "Tim Van Patten", writedBy: "David Benioff & D. B. Weiss")
+        let episode2Season1 = Episode(title: "The Kingsroad", issueDate: dateFormatter.date(from: "2011-04-24")!, season: season1, summary: "Summary", directedBy: "Tim Van Patten", writedBy: "David Benioff & D. B. Weiss")
+        let episode1Season2 = Episode(title: "The North Remembers", issueDate: dateFormatter.date(from: "2012-04-01")!, season: season2, summary: "Summary", directedBy: "Alan Taylor", writedBy: "David Benioff & D. B. Weiss")
+        let episode2Season2 = Episode(title: "The Night Lands", issueDate: dateFormatter.date(from: "2012-04-08")!, season: season2, summary: "Summary", directedBy: "Alan Taylor", writedBy: "David Benioff & D. B. Weiss")
+        let episode1Season3 = Episode(title: "Valar Dohaeris", issueDate: dateFormatter.date(from: "2013-03-31")!, season: season3, summary: "Summary", directedBy: "Daniel Minahan", writedBy: "David Benioff & D. B. Weiss")
+        let episode2Season3 = Episode(title: "Dark Wings, Dark Words", issueDate: dateFormatter.date(from: "2013-04-07")!, season: season3, summary: "Summary", directedBy: "Daniel Minahan", writedBy: "Vanessa Taylor")
+        let episode1Season4 = Episode(title: "Two Swords", issueDate: dateFormatter.date(from: "2014-04-06")!, season: season4, summary: "Summary", directedBy: "D. B. Weiss", writedBy: "David Benioff y D. B. Weiss")
+        let episode2Season4 = Episode(title: "The Lion and the Rose", issueDate: dateFormatter.date(from: "2014-04-13")!, season: season4, summary: "Summary", directedBy: "Alex Graves", writedBy: "George R. R. Martin")
+        let episode1Season5 = Episode(title: "The Wars to Come", issueDate: dateFormatter.date(from: "2015-04-12")!, season: season5, summary: "Summary", directedBy: "Michael Slovis", writedBy: "David Benioff & D. B. Weiss")
+        let episode2Season5 = Episode(title: "The House of Black and White", issueDate: dateFormatter.date(from: "2015-04-19")!, season: season5, summary: "Summary", directedBy: "Michael Slovis", writedBy: "David Benioff & D. B. Weiss")
+        let episode1Season6 = Episode(title: "The Red Woman", issueDate: dateFormatter.date(from: "2016-04-24")!, season: season6, summary: "Summary", directedBy: "Jeremy Podeswa", writedBy: "David Benioff & D. B. Weiss")
+        let episode2Season6 = Episode(title: "Home", issueDate: dateFormatter.date(from: "2016-05-01")!, season: season6, summary: "Summary", directedBy: "Jeremy Podeswa", writedBy: "Dave Hill")
+        let episode1Season7 = Episode(title: "Dragonstone", issueDate: dateFormatter.date(from: "2017-06-16")!, season: season7, summary: "Summary", directedBy: "Jeremy Podeswa", writedBy: "David Benioff & D. B. Weiss")
+        let episode2Season7 = Episode(title: "Stormborn", issueDate: dateFormatter.date(from: "2017-06-23")!, season: season7, summary: "Summary", directedBy: "Mark Mylod", writedBy: "Bryan Cogman")
         
         season1.add(episodes: episode1Season1, episode2Season1)
         season2.add(episodes: episode1Season2, episode2Season2)

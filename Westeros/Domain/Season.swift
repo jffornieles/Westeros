@@ -15,7 +15,6 @@ class Season {
     let name: String
     let releaseDate: Date
     private var _episodes: Episodes
-    var numberOfEpisodesForSeason: Int { return count }
     
     init(name: String, releaseDate: Date) {
         self.name = name

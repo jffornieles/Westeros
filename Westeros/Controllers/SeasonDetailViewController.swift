@@ -35,9 +35,12 @@ class SeasonDetailViewController: UIViewController {
     }
     
     func syncModelWithView() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM yyyy"
+        let displayDate = dateFormatter.string(from: model.releaseDate)
         title = model.name
         titleLabel.text = model.name
-        dateLabel.text = "Release Date: \(model.releaseDate)"
+        dateLabel.text = "Release Date: \(displayDate)"
     }
     
     func setupUI() {

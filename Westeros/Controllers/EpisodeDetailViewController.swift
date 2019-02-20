@@ -34,11 +34,14 @@ class EpisodeDetailViewController: UIViewController {
     }
     
     func syncModelWithView() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        let displayDate = dateFormatter.string(from: model.issueDate)
         title = model.title
         titleLabel.text = model.title
         directedLabel.text = model.directedBy
         writedLabel.text = model.writedBy
-        issueDateLabel.text = "\(model.issueDate)"
+        issueDateLabel.text = "\(displayDate)"
     }
 }
 

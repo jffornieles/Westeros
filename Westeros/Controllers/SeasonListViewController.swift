@@ -55,7 +55,7 @@ class SeasonListViewController: UITableViewController {
         }
         
         cell?.textLabel?.text = season.name
-        cell?.detailTextLabel?.text = "Number of episodes: \(season.numberOfEpisodesForSeason)"
+        cell?.detailTextLabel?.text = "Number of episodes: \(season.count)"
         
         return cell!
     }
