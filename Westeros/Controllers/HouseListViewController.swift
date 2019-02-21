@@ -16,7 +16,7 @@ class HouseListViewController: UITableViewController {
 
     
     // MARK: - Properties
-    let model: [House]
+    var model: [House]
     var delegate: HouseListViewControllerDelegate?
     
     // MARK: - Initialization
@@ -105,6 +105,15 @@ extension HouseListViewController {
     func house(at index: Int) -> House {
         return model[index]
     }
+}
+
+extension HouseListViewController: HouseListViewControllerDelegate {
+    func houseListViewController(_ viewController: HouseListViewController, didSelectHouse: House) {
+        let houseDetailViewController = HouseDetailViewController(model: didSelectHouse)
+        navigationController?.pushViewController(houseDetailViewController, animated: true)
+    }
+
+
 }
 
 

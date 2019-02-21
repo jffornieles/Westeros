@@ -72,5 +72,12 @@ class SeasonListViewController: UITableViewController {
     }
 }
 
+extension SeasonListViewController: SeasonListViewControllerDelegate {
+    func seasonListViewController(_ viewController: SeasonListViewController, didSelectSeason: Season) {
+        let seasonDatailViewController = SeasonDetailViewController(model: didSelectSeason)
+        navigationController?.pushViewController(seasonDatailViewController, animated: true)
+    }
+}
+
 
 

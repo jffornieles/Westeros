@@ -70,13 +70,13 @@ final class LocalFactory: HouseFactory, SeasonFactory {
         let episode1Season7 = Episode(title: "Dragonstone", issueDate: dateFormatter.date(from: "2017-06-16")!, season: season7, summary: "Summary", directedBy: "Jeremy Podeswa", writedBy: "David Benioff & D. B. Weiss")
         let episode2Season7 = Episode(title: "Stormborn", issueDate: dateFormatter.date(from: "2017-06-23")!, season: season7, summary: "Summary", directedBy: "Mark Mylod", writedBy: "Bryan Cogman")
         
-        season1.add(episodes: episode1Season1, episode2Season1)
-        season2.add(episodes: episode1Season2, episode2Season2)
-        season3.add(episodes: episode1Season3, episode2Season3)
-        season4.add(episodes: episode1Season4, episode2Season4)
-        season5.add(episodes: episode1Season5, episode2Season5)
-        season6.add(episodes: episode1Season6, episode2Season6)
-        season7.add(episodes: episode1Season7, episode2Season7)
+//        season1.add(episodes: episode1Season1, episode2Season1)
+//        season2.add(episodes: episode1Season2, episode2Season2)
+//        season3.add(episodes: episode1Season3, episode2Season3)
+//        season4.add(episodes: episode1Season4, episode2Season4)
+//        season5.add(episodes: episode1Season5, episode2Season5)
+//        season6.add(episodes: episode1Season6, episode2Season6)
+//        season7.add(episodes: episode1Season7, episode2Season7)
         
         return [season1, season2, season3, season4, season5, season6, season7].sorted()
         
@@ -108,9 +108,9 @@ final class LocalFactory: HouseFactory, SeasonFactory {
         let jaime = Person(name: "Jaime", alias: "El mata reyes", house: lannisterHouse)
         let dani = Person(name: "Daenerys", alias: "Madre de dragones", house: targaryenHouse)
         
-        starkHouse.add(persons: robb, arya)
-        lannisterHouse.add(persons: tyrion, cersei, jaime)
-        targaryenHouse.add(person: dani)
+//        starkHouse.add(persons: robb, arya)
+//        lannisterHouse.add(persons: tyrion, cersei, jaime)
+//        targaryenHouse.add(person: dani)
         
         return [targaryenHouse, starkHouse, lannisterHouse].sorted()
     }

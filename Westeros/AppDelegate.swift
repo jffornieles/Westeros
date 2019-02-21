@@ -39,10 +39,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             houseDetailViewController.wrappedInNavigation(),
             seasonDetailViewController.wrappedInNavigation()
         ]
-        
-        
-        houseListViewController.delegate = houseDetailViewController
-        seasonListViewController.delegate = seasonDetailViewController
+
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            houseListViewController.delegate = houseDetailViewController
+            seasonListViewController.delegate = seasonDetailViewController
+        } else {
+            houseListViewController.delegate = houseListViewController
+            seasonListViewController.delegate = seasonListViewController
+        }
         
         // Creamos el TabBarController y asignamos controladores
         let tabBarController = UITabBarController()

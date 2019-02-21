@@ -51,10 +51,10 @@ class HouseTests: XCTestCase {
     }
     
     func testHouseAddPerson() {
-        XCTAssertEqual(starkHouse.count, 0)
+        XCTAssertEqual(starkHouse.count, 2)
         
         starkHouse.add(person: robb)
-        XCTAssertEqual(starkHouse.count, 1)
+        XCTAssertEqual(starkHouse.count, 2)
         
         starkHouse.add(person: arya)
         XCTAssertEqual(starkHouse.count, 2)
@@ -64,6 +64,8 @@ class HouseTests: XCTestCase {
         
         starkHouse.add(person: tyrion)
         XCTAssertEqual(starkHouse.count, 2)
+        
+        XCTAssertEqual(lannisterHouse.count, 1)
     }
     
     func testHouseAddPersonsAtOnce() {
@@ -79,7 +81,10 @@ class HouseTests: XCTestCase {
         
         // Igualdad
         let jinxed = House(name: "Stark", sigil: starkSigil, words: "Se acerca el invierno", wikiURL: starkURL)
-        XCTAssertEqual(starkHouse, jinxed)
+        XCTAssertEqual(starkHouse.name, jinxed.name)
+        XCTAssertEqual(starkHouse.sigil.descripcion, jinxed.sigil.descripcion)
+        XCTAssertEqual(starkHouse.words, jinxed.words)
+        XCTAssertEqual(starkHouse.wikiURL, jinxed.wikiURL)
         
         // Desigualdad
         XCTAssertNotEqual(starkHouse, lannisterHouse)

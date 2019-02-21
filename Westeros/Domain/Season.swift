@@ -26,7 +26,7 @@ class Season {
 extension Season {
     
     var sortedEpisodes: [Episode] {
-        return _episodes.sorted()
+        return _episodes.sorted { $0.issueDate < $1.issueDate}
     }
     
     var count: Int {

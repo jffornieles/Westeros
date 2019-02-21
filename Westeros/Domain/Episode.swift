@@ -23,6 +23,7 @@ class Episode {
         self.summary = summary
         self.directedBy = directedBy
         self.writedBy = writedBy
+        self.season?.add(episode: self)
     }
 }
 
