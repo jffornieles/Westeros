@@ -85,7 +85,17 @@ extension MemberListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let member = model[indexPath.row]
         let memberDetailViewController = MemberDetailViewController(model: member)
+        memberDetailViewController.delegate = self
         navigationController?.pushViewController(memberDetailViewController, animated: true)
+    }
+    
+    
+}
+
+extension MemberListViewController: MemberDetailViewControllerDelegate {
+    func memberDetailViewControllerDelegate(_ viewController: MemberDetailViewController, shouldShowMembers: [Person]) {
+        self.model = shouldShowMembers
+        tableView.reloadData()
     }
     
     

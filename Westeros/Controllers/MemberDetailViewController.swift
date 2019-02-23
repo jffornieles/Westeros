@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol MemberDetailViewControllerDelegate {
+    func memberDetailViewControllerDelegate(_ viewController: MemberDetailViewController, shouldShowMembers: [Person])
+}
+
 class MemberDetailViewController: UIViewController {
 
     // MARK: - Properties
     var model: Person
+    var delegate: MemberDetailViewControllerDelegate?
     
     // MARK: - Outlets
     @IBOutlet weak var nameLabel: UILabel!
@@ -39,10 +44,8 @@ class MemberDetailViewController: UIViewController {
             return
         }
         
-        self.model = house.sortedMembers.first!
-//        let memberListViewController = MemberListViewController(model: house.sortedMembers)
-//        navigationController?.pushViewController(memberListViewController, animated: true)
-        syncModelWithView()
+        delegate?.memberDetailViewControllerDelegate(self, shouldShowMembers: house.sortedMembers)
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Initialization
