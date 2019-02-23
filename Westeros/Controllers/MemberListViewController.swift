@@ -33,7 +33,7 @@ class MemberListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         
         let notificationCenter = NotificationCenter.default
         let notificationName = Notification.Name(HOUSE_DID_CHANGE_NOTIFICATION_NAME)

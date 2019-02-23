@@ -86,6 +86,16 @@ class EpisodeListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let episode = model[indexPath.row]
         let episodeViewController = EpisodeDetailViewController(model: episode)
+        episodeViewController.delegate = self
         navigationController?.pushViewController(episodeViewController, animated: true)
     }
+}
+
+extension EpisodeListViewController: EpisodeDetailViewControllerDelegate {
+    func episodeDetailViewController(_ viewController: EpisodeDetailViewController, shouldShowSeasons: [Episode]) {
+        self.model = shouldShowSeasons
+        tableView.reloadData()
+    }
+    
+    
 }

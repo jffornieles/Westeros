@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol EpisodeDetailViewControllerDelegate {
+    func episodeDetailViewController(_ viewController: EpisodeDetailViewController, shouldShowSeasons: [Episode])
+}
+
 class EpisodeDetailViewController: UIViewController {
 
     // MARK: - Outlets
@@ -18,6 +22,7 @@ class EpisodeDetailViewController: UIViewController {
     
     // MARK: - Properties
     var model: Episode
+    var delegate: EpisodeDetailViewControllerDelegate?
     
     init(model: Episode) {
         self.model = model
@@ -30,7 +35,28 @@ class EpisodeDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        let notificationCenter = NotificationCenter.default
+        let notificationName = Notification.Name(SEASON_DID_CHANGE_NOTIFICATION_NAME)
+        notificationCenter.addObserver(self, selector: #selector(seasonDidChange(notification:)), name: notificationName, object: nil)
         syncModelWithView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
+    @objc func seasonDidChange(notification: Notification) {
+        
+        guard let info = notification.userInfo, let season = info[SEASON_KEY] as? Season else {
+            return
+        }
+        
+        delegate?.episodeDetailViewController(self, shouldShowSeasons: season.sortedEpisodes)
+        navigationController?.popViewController(animated: true)
     }
     
     func syncModelWithView() {

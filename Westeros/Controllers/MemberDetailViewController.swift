@@ -19,7 +19,29 @@ class MemberDetailViewController: UIViewController {
     @IBOutlet weak var houseLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
+        
+        let notificaionCenter = NotificationCenter.default
+        let notificationName = Notification.Name(HOUSE_DID_CHANGE_NOTIFICATION_NAME)
+        notificaionCenter.addObserver(self, selector: #selector(seasonDidChange(notification:)), name: notificationName, object: nil)
+        syncModelWithView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
+    @objc func seasonDidChange(notification: Notification) {
+        
+        guard let info = notification.userInfo, let house = info[HOUSE_KEY] as? House else {
+            return
+        }
+        
+        self.model = house.sortedMembers.first!
+//        let memberListViewController = MemberListViewController(model: house.sortedMembers)
+//        navigationController?.pushViewController(memberListViewController, animated: true)
         syncModelWithView()
     }
     
