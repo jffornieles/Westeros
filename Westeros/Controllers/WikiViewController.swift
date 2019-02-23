@@ -65,6 +65,9 @@ class WikiViewController: UIViewController {
             return
         }
         
+        let backButton = UIBarButtonItem(title: house.name, style: .plain, target: self, action: Selector(("none")))
+        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
         
         // Actualizar mi modelo
         self.model = house
