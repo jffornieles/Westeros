@@ -34,10 +34,12 @@ class EpisodeListViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         let notificationCenter = NotificationCenter.default
         let notificationName = Notification.Name(SEASON_DID_CHANGE_NOTIFICATION_NAME )
         
         notificationCenter.addObserver(self, selector: #selector(seasonDidChange(notification:)), name: notificationName, object: nil)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
