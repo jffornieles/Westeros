@@ -53,6 +53,8 @@ class MemberListViewController: UIViewController {
             return
         }
         self.model = house.sortedMembers
+        let backButton = UIBarButtonItem(title: house.name, style: .plain, target: self, action: Selector(("none")))
+        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         tableView.reloadData()
     }
 }

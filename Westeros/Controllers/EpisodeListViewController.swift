@@ -52,6 +52,8 @@ class EpisodeListViewController: UITableViewController {
             return
         }
         self.model = season.sortedEpisodes
+        let backButton = UIBarButtonItem(title: season.name, style: .plain, target: self, action: Selector(("none")))
+        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         tableView.reloadData()
     }
     
