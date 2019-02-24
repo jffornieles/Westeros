@@ -133,6 +133,7 @@
 		870D3D8D2203929B000D13EF /* Westeros */ = {
 			isa = PBXGroup;
 			children = (
+				871F40AA222305A8002F7865 /* View */,
 				8713B4152209B02F0062FE6F /* Additions */,
 				8713B40922099B620062FE6F /* Controllers */,
 				87CB5A4F22039E0D0050E4CF /* Domain */,
@@ -160,24 +161,8 @@
 		8713B40922099B620062FE6F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8713B40A22099BA80062FE6F /* HouseDetailViewController.swift */,
-				8713B40B22099BA80062FE6F /* HouseDetailViewController.xib */,
-				8748D005220EE8DC001CB53A /* WikiViewController.swift */,
-				8748D006220EE8DC001CB53A /* WikiViewController.xib */,
-				8716FFB3220F44C20028FEE4 /* HouseListViewController.swift */,
-				8716FFB4220F44C20028FEE4 /* HouseListViewController.xib */,
-				8716FFB7220F54E70028FEE4 /* MemberListViewController.swift */,
-				8716FFB8220F54E70028FEE4 /* MemberListViewController.xib */,
-				8721B9FA2215D9EA0038DD07 /* SeasonListViewController.swift */,
-				8721B9FB2215D9EA0038DD07 /* SeasonListViewController.xib */,
-				8721B9FE2215E39A0038DD07 /* SeasonDetailViewController.swift */,
-				8721B9FF2215E39A0038DD07 /* SeasonDetailViewController.xib */,
-				870D23FC2216C6F6003C247A /* EpisodeListViewController.swift */,
-				870D23FD2216C6F6003C247A /* EpisodeListViewController.xib */,
-				870D24002216CBCB003C247A /* EpisodeDetailViewController.swift */,
-				870D24012216CBCB003C247A /* EpisodeDetailViewController.xib */,
-				872DC3032218344700FBBAAD /* MemberDetailViewController.swift */,
-				872DC3042218344700FBBAAD /* MemberDetailViewController.xib */,
+				871F40AC222305EB002F7865 /* Season */,
+				871F40AB222305CB002F7865 /* House */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,15 +176,86 @@
 			path = Additions;
 			sourceTree = "<group>";
 		};
-		87CB5A4F22039E0D0050E4CF /* Domain */ = {
+		871F40AA222305A8002F7865 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				87D0E9BC220B711B00725271 /* Repositories */,
+				871F40AE22230615002F7865 /* Season */,
+				871F40AD22230605002F7865 /* House */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		871F40AB222305CB002F7865 /* House */ = {
+			isa = PBXGroup;
+			children = (
+				8713B40A22099BA80062FE6F /* HouseDetailViewController.swift */,
+				8748D005220EE8DC001CB53A /* WikiViewController.swift */,
+				8716FFB3220F44C20028FEE4 /* HouseListViewController.swift */,
+				8716FFB7220F54E70028FEE4 /* MemberListViewController.swift */,
+				872DC3032218344700FBBAAD /* MemberDetailViewController.swift */,
+			);
+			path = House;
+			sourceTree = "<group>";
+		};
+		871F40AC222305EB002F7865 /* Season */ = {
+			isa = PBXGroup;
+			children = (
+				8721B9FA2215D9EA0038DD07 /* SeasonListViewController.swift */,
+				8721B9FE2215E39A0038DD07 /* SeasonDetailViewController.swift */,
+				870D23FC2216C6F6003C247A /* EpisodeListViewController.swift */,
+				870D24002216CBCB003C247A /* EpisodeDetailViewController.swift */,
+			);
+			path = Season;
+			sourceTree = "<group>";
+		};
+		871F40AD22230605002F7865 /* House */ = {
+			isa = PBXGroup;
+			children = (
+				8713B40B22099BA80062FE6F /* HouseDetailViewController.xib */,
+				8748D006220EE8DC001CB53A /* WikiViewController.xib */,
+				8716FFB4220F44C20028FEE4 /* HouseListViewController.xib */,
+				8716FFB8220F54E70028FEE4 /* MemberListViewController.xib */,
+				872DC3042218344700FBBAAD /* MemberDetailViewController.xib */,
+			);
+			path = House;
+			sourceTree = "<group>";
+		};
+		871F40AE22230615002F7865 /* Season */ = {
+			isa = PBXGroup;
+			children = (
+				8721B9FB2215D9EA0038DD07 /* SeasonListViewController.xib */,
+				8721B9FF2215E39A0038DD07 /* SeasonDetailViewController.xib */,
+				870D23FD2216C6F6003C247A /* EpisodeListViewController.xib */,
+				870D24012216CBCB003C247A /* EpisodeDetailViewController.xib */,
+			);
+			path = Season;
+			sourceTree = "<group>";
+		};
+		871F40AF2223062B002F7865 /* House */ = {
+			isa = PBXGroup;
+			children = (
 				87CB5A5022039E340050E4CF /* House.swift */,
 				87CB5A522203A6EA0050E4CF /* Sigil.swift */,
 				87CB5A562203A9B90050E4CF /* Person.swift */,
+			);
+			path = House;
+			sourceTree = "<group>";
+		};
+		871F40B022230632002F7865 /* Season */ = {
+			isa = PBXGroup;
+			children = (
 				871BE8B322142F1B005DF224 /* Season.swift */,
 				871BE8B522142FE4005DF224 /* Episode.swift */,
+			);
+			path = Season;
+			sourceTree = "<group>";
+		};
+		87CB5A4F22039E0D0050E4CF /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				871F40B022230632002F7865 /* Season */,
+				871F40AF2223062B002F7865 /* House */,
+				87D0E9BC220B711B00725271 /* Repositories */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
