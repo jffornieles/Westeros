@@ -51,4 +51,12 @@ class EpisodeTest: XCTestCase {
     func testEpisode_CustomStringConvertile_IsNotNill() {
         XCTAssertNotNil(episode.description)
     }
+    
+    func testEpisodeList_EpisodeListExists_EpisodeListIsNotNull() {
+        XCTAssertNotNil([episode, episodeTwo])
+    }
+    
+    func testEpisodeDetail_EpisodeDetailExists_EpisodeDetailIsNotNull() {
+        XCTAssertNotNil(episode)
+    }
 }

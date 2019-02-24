@@ -78,5 +78,13 @@ class SeasonTest: XCTestCase {
         season.add(episodes: episode1, episode2, episode2x1)
         XCTAssertEqual(season.count, 2)
     }
+    
+    func testSeasonList_SeasonListExists_SeasonListIsNotNull() {
+        XCTAssertNotNil([season, seasonTwo])
+    }
+    
+    func testSeasonDetail_SeasonDetailExists_SeasonDetailIsNotNull() {
+        XCTAssertNotNil(season)
+    }
 
 }
